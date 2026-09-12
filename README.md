@@ -602,7 +602,7 @@ S1(config-vlan)#exit
 
 Après la création des VLANs sur le switch S1, il est essentiel de vérifier que ces derniers sont correctement configurés et opérationnels. Cette vérification permet de s'assurer que la segmentation réseau est fonctionnelle avant de passer à la configuration des ports d'accès et des trunks.
 
-![Vérification des VLANs](Images/verification_vlan.png)
+![Vérification des VLANs](Images/verificationvlan.png)
 
 ---
 
