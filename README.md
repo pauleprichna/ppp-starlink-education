@@ -658,6 +658,7 @@ S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
 S1(config-if)#switchport nonegotiate
 S1(config-if)#exit
 
+```
 **Analyse détaillée des commandes :**
 
 La commande `interface e0/2` sélectionne le port physique Ethernet 0/2 du switch S1. Ce port est dédié à la connexion avec le contrôleur WiFi vWLC.
