@@ -632,3 +632,11 @@ S1(config)#interface ethernet 0/1
 S1(config-if)#switchport mode access
 S1(config-if)#switchport access vlan 50
 S1(config-if)#
+#### Configuration du port d'accès pour le VLAN 50 (Serveurs)
+
+La commande `interface ethernet 0/1` sélectionne le port physique Ethernet 0/1 du switch S1. Ce port est identifié par son emplacement physique sur le switch. Il est destiné à être connecté au serveur Zabbix, qui doit appartenir au VLAN 50 (Serveurs).
+
+La commande `switchport mode access` configure le port en mode accès. Un port en mode accès ne transporte le trafic que d'un seul VLAN, contrairement à un port trunk qui peut transporter plusieurs VLANs. Cette configuration est adaptée pour un port connecté à un terminal utilisateur ou à un serveur.
+
+La commande `switchport access vlan 50` assigne le port au VLAN 50 (Serveurs). Tout le trafic entrant et sortant sur ce port sera associé à ce VLAN. Le switch ajoutera automatiquement le tag VLAN 50 aux trames sortant de ce port et enlèvera le tag pour les trames entrantes, simplifiant ainsi la configuration du serveur connecté.
+```
