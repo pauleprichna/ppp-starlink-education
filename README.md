@@ -731,6 +731,7 @@ La commande `switchport access vlan 30` assigne le port au VLAN 30 (Administrati
 
 Après la configuration des VLANs et des ports d'accès, la commande `show vlan brief` permet de vérifier que l'ensemble de la configuration est correctement appliquée sur le switch S1.
 
+
 ![Vérification finale des VLANs](Images/verification_trunk.png)
 
 **Commande exécutée :**
@@ -741,7 +742,7 @@ S1(config)#do show vlan brief
 #### Configuration du port Trunk vers le routeur R1
 
 La capture ci-dessous présente la configuration du port Ethernet 0/0 du switch S1 en mode trunk vers le routeur R1.
-
+```
 ![Configuration du trunk vers R1](Images/trunk_r1.png)
 
 **Commandes exécutées :**
