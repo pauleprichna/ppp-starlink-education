@@ -737,3 +737,20 @@ Après la configuration des VLANs et des ports d'accès, la commande `show vlan 
 
 ```cisco
 S1(config)#do show vlan brief
+
+#### Configuration du port Trunk vers le routeur R1
+
+La capture ci-dessous présente la configuration du port Ethernet 0/0 du switch S1 en mode trunk vers le routeur R1.
+
+![Configuration du trunk vers R1](Images/trunk_r1.png)
+
+**Commandes exécutées :**
+
+```cisco
+S1(config)#interface e0/0
+S1(config-if)#switchport trunk encapsulation dot1q
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk native vlan 10
+S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
+S1(config-if)#desc Lien vers R1
+S1(config-if)#do wr
