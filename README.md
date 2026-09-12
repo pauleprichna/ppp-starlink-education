@@ -14,8 +14,6 @@ La maquette est réalisée sous **GNS3** et simule l'infrastructure réseau comp
 - [Description des équipements](#-description-des-équipements)
 - [Plan d'adressage](#-plan-dadressage)
 - [Mise en œuvre](#-mise-en-œuvre)
-- [Tests de validation](#-tests-de-validation)
-- [Supervision](#-supervision)
 
 ---
 
@@ -151,7 +149,7 @@ Un pool DHCP est un ensemble d'adresses IP qu'un serveur DHCP peut attribuer aux
 
 **Bail DHCP**
 
-Le bail DHCP est la durée pendant laquelle une adresse IP est attribuée à un client. À l'expiration du bail, le client doit renouveler son adresse auprès du serveur DHCP. La durée du bail peut varier selon le type d'utilisateur.
+Le bail DHCP est la durée pendant laquelle une adresse IP est attribuée à un client. À l'expiration du bail, le client doit renouveler son adresse auprès du serveur DHCP.
 
 ---
 
@@ -181,91 +179,91 @@ Le SNMP est un protocole standard permettant la supervision des équipements ré
 
 **Communauté SNMP**
 
-La communauté SNMP est un mot de passe permettant l'accès aux informations SNMP d'un équipement. Elle est utilisée pour authentifier les requêtes de supervision. Dans ce projet, la communauté `public` est utilisée avec un accès en lecture seule (RO).
+La communauté SNMP est un mot de passe permettant l'accès aux informations SNMP d'un équipement. Dans ce projet, la communauté `public` est utilisée avec un accès en lecture seule (RO).
 
 ---
 
 **SSID (Service Set Identifier)**
 
-Le SSID est le nom du réseau WiFi diffusé par un point d'accès. Les utilisateurs voient ce nom dans la liste des réseaux disponibles et l'utilisent pour se connecter. Deux SSIDs sont configurés dans ce projet : `Starlink-Education` et `Starlink-Admin`.
+Le SSID est le nom du réseau WiFi diffusé par un point d'accès. Deux SSIDs sont configurés dans ce projet : `Starlink-Education` et `Starlink-Admin`.
 
 ---
 
 **WPA2-PSK**
 
-WPA2-PSK (Wi-Fi Protected Access 2 - Pre-Shared Key) est un protocole de sécurité WiFi utilisant une clé pré-partagée pour l'authentification. Il chiffre les communications entre les clients et le point d'accès.
+WPA2-PSK (Wi-Fi Protected Access 2 - Pre-Shared Key) est un protocole de sécurité WiFi utilisant une clé pré-partagée pour l'authentification.
 
 ---
 
 **WLC (Wireless LAN Controller)**
 
-Un WLC est un contrôleur gérant centralement les points d'accès WiFi et les SSIDs. Il permet une gestion unifiée du réseau sans fil, notamment pour l'authentification, l'itinérance et la supervision.
+Un WLC est un contrôleur gérant centralement les points d'accès WiFi et les SSIDs.
 
 ---
 
 **vWLC**
 
-Le vWLC est la version virtualisée du contrôleur WiFi Cisco. Il offre les mêmes fonctionnalités qu'un contrôleur physique, mais s'exécute sur une machine virtuelle, ce qui réduit les coûts et facilite le déploiement.
+Le vWLC est la version virtualisée du contrôleur WiFi Cisco.
 
 ---
 
 **Zabbix**
 
-Zabbix est une solution open source de supervision réseau. Il collecte, stocke et analyse les métriques des équipements supervisés, et déclenche des alertes en cas d'anomalie.
+Zabbix est une solution open source de supervision réseau.
 
 ---
 
 **Grafana**
 
-Grafana est une plateforme de visualisation de données et de tableaux de bord. Il permet de créer des graphiques interactifs à partir des métriques collectées par Zabbix.
+Grafana est une plateforme de visualisation de données et de tableaux de bord.
 
 ---
 
 **GNS3**
 
-GNS3 (Graphical Network Simulator 3) est un simulateur réseau permettant de reproduire des topologies complexes. Il est utilisé dans ce projet pour simuler l'infrastructure réseau de l'école.
+GNS3 (Graphical Network Simulator 3) est un simulateur réseau permettant de reproduire des topologies complexes.
 
 ---
 
 **pfSense**
 
-pfSense est une distribution FreeBSD spécialisée dans les fonctions de pare-feu et de routage. Il offre des fonctionnalités avancées de sécurité, de NAT, de QoS et de filtrage de contenu.
+pfSense est une distribution FreeBSD spécialisée dans les fonctions de pare-feu et de routage.
 
 ---
 
 **LEO (Low Earth Orbit)**
 
-LEO désigne l'orbite basse terrestre, utilisée par les satellites Starlink. Les satellites en orbite basse sont situés à environ 550 km d'altitude, ce qui réduit considérablement la latence par rapport aux satellites géostationnaires.
+LEO désigne l'orbite basse terrestre, utilisée par les satellites Starlink.
 
 ---
 
 **ARTP**
 
-L'ARTP (Autorité de Régulation des Télécommunications et des Postes) est l'organisme sénégalais chargé de réguler le secteur des télécommunications. Starlink est officiellement autorisé au Sénégal sous son contrôle.
+L'ARTP (Autorité de Régulation des Télécommunications et des Postes) est l'organisme sénégalais chargé de réguler le secteur des télécommunications.
 
 ---
 
 **New Deal Technologique**
 
-Le New Deal Technologique est un programme gouvernemental sénégalais visant à connecter un million de citoyens d'ici fin 2026, en ciblant prioritairement les écoles et les structures isolées.
+Le New Deal Technologique est un programme gouvernemental sénégalais visant à connecter un million de citoyens d'ici fin 2026.
 
 ---
 
 **GIGA**
 
-GIGA est une initiative conjointe de l'UNICEF et de l'UIT (Union Internationale des Télécommunications) pour connecter toutes les écoles du monde à Internet.
+GIGA est une initiative conjointe de l'UNICEF et de l'UIT pour connecter toutes les écoles du monde à Internet.
 
 ---
 
 **LMS (Learning Management System)**
 
-Un LMS est une plateforme de gestion de l'apprentissage en ligne. Il permet aux enseignants de créer des cours, de distribuer des ressources et de suivre la progression des élèves. Moodle et Canvas sont des exemples de LMS.
+Un LMS est une plateforme de gestion de l'apprentissage en ligne (Moodle, Canvas).
 
 ---
 
 **OER (Open Educational Resources)**
 
-Les OER sont des ressources éducatives libres et gratuites, accessibles en ligne. Elles incluent des manuels, des vidéos, des exercices interactifs et d'autres supports pédagogiques.
+Les OER sont des ressources éducatives libres et gratuites, accessibles en ligne.
 
 ---
 
@@ -295,7 +293,7 @@ Dans le cadre de ce projet, Starlink a pour but de **connecter une école rurale
 
 **Fonctions assurées :**
 
-- **Connectivité satellitaire** : Établissement et maintien de la liaison avec les satellites Starlink. L'antenne parabolique s'oriente automatiquement pour optimiser la réception du signal.
+- **Connectivité satellitaire** : Établissement et maintien de la liaison avec les satellites Starlink.
 - **Attribution d'adresses IP** : Distribution d'adresses IP dynamiques via DHCP sur le réseau local `192.168.122.0/24`.
 - **Accès Internet** : Fourniture d'un accès haut débit avec des débits pouvant atteindre 305 Mbps en réception et 20 à 40 Mbps en émission.
 
@@ -411,7 +409,7 @@ Zabbix collecte en continu des métriques sur l'état et la performance des équ
 
 ### Grafana
 
-**Modèle / Type :** Ubuntu 22.04 LTS
+**Modèle / Type :** Ubuntu 24.04 LTS
 
 **Rôle Principal :** Visualisation et tableaux de bord
 
@@ -535,9 +533,9 @@ cd ppp-starlink-education/maquette
 
 ### 4. Charger les configurations
 
-Pour chaque équipement, chargez la configuration depuis le dossier `configs/` :
+Pour chaque équipement, chargez la configuration depuis le dossier `configs/`.
 
-## 🚀 Mise en œuvre
+---
 
 ### Configuration des VLANs sur le Switch S1
 
@@ -571,15 +569,7 @@ Avant de commencer la configuration, voici le schéma de la maquette réseau mon
 
 La première étape consiste à créer les différents VLANs qui segmenteront le réseau de l'école.
 
-
-
-![Mise en œuvre des ports](Images/mise_enoeuvre.png)
-
-
-
 ![Création des VLANs](Images/creation_vlan.png)
-
-
 
 **Commandes exécutées :**
 
@@ -595,6 +585,72 @@ S1(config-vlan)#name Invites
 S1(config-vlan)#vlan 50
 S1(config-vlan)#name Serveurs
 S1(config-vlan)#exit
+```
+
+**Explication :**
+
+- **VLAN 10 (Management)** : Dédié à l'administration réseau
+- **VLAN 20 (Education)** : Dédié aux élèves et aux salles de classe
+- **VLAN 30 (Administration)** : Dédié aux enseignants et au personnel
+- **VLAN 40 (Invites)** : Dédié aux visiteurs et événements
+- **VLAN 50 (Serveurs)** : Dédié aux serveurs (LMS, OER, supervision)
+
+---
+
+#### Étape 2 : Configuration des ports d'accès et des trunks
+
+Une fois les VLANs créés, il faut assigner les ports d'accès aux différents VLANs et configurer les trunks pour les liaisons vers le routeur R1 et le contrôleur vWLC.
+
+**Configuration des ports d'accès :**
+
+```cisco
+S1(config)#interface Ethernet0/3
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+
+S1(config)#interface Ethernet1/1
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config-if)#exit
+
+S1(config)#interface Ethernet1/0
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 30
+S1(config-if)#exit
+
+S1(config)#interface Ethernet0/1
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 50
+S1(config-if)#exit
+```
+
+**Configuration des trunks :**
+
+```cisco
+S1(config)#interface Ethernet0/0
+S1(config-if)#switchport trunk encapsulation dot1q
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk native vlan 10
+S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
+S1(config-if)#exit
+
+S1(config)#interface Ethernet0/2
+S1(config-if)#switchport trunk encapsulation dot1q
+S1(config-if)#switchport mode trunk
+S1(config-if)#switchport trunk native vlan 10
+S1(config-if)#switchport trunk allowed vlan 10,20,30
+S1(config-if)#exit
+```
+
+**Explication :**
+
+- **Ports d'accès** : Chaque port est assigné à un VLAN spécifique (un port = un VLAN)
+- **Trunk e0/0** : Liaison vers le routeur R1, transporte tous les VLANs (10, 20, 30, 40, 50)
+- **Trunk e0/2** : Liaison vers le contrôleur vWLC, transporte les VLANs 10, 20 et 30
+- **VLAN natif** : Le VLAN 10 (Management) est utilisé comme VLAN natif
+
+---
 
 #### Étape 3 : Vérification des VLANs et des trunks
 
@@ -606,3 +662,58 @@ La dernière étape consiste à vérifier que les VLANs et les trunks sont corre
 
 ```cisco
 S1(config)#do show vlan brief
+```
+
+**Résultat obtenu :**
+
+```
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Et0/0, Et0/1, Et0/2, Et0/3
+                                                Et1/0, Et1/1, Et1/2, Et1/3
+                                                Et2/0, Et2/1, Et2/2, Et2/3
+                                                Et3/0, Et3/1, Et3/2, Et3/3
+10   Management                       active
+20   Education                        active
+30   Administration                   active
+40   Invites                          active
+50   Serveurs                         active
+1002 fddi-default                     act/unsup
+1003 token-ring-default               act/unsup
+1004 fddinet-default                  act/unsup
+1005 trnet-default                    act/unsup
+```
+
+**Commentaire du résultat :**
+
+La commande `show vlan brief` affiche la liste complète des VLANs configurés sur le switch S1, avec leur identifiant, leur nom, leur statut et les ports qui leur sont assignés.
+
+La première ligne concerne le **VLAN 1 (default)**. Ce VLAN est présent par défaut sur tous les switches Cisco et ne peut pas être supprimé. Tous les ports qui n'ont pas encore été assignés à un VLAN spécifique restent dans ce VLAN.
+
+Les **VLANs 10, 20, 30, 40 et 50** apparaissent avec leurs noms respectifs : Management, Education, Administration, Invites et Serveurs. Tous ont le statut **`active`**, ce qui confirme qu'ils ont été correctement créés et qu'ils sont opérationnels.
+
+Les **VLANs 1002 à 1005** sont des VLANs par défaut spécifiques aux environnements Cisco. Ils sont associés à des technologies réseau historiques (FDDI, Token Ring) qui ne sont plus utilisées. Leur statut **`act/unsup`** (active/unsupported) indique qu'ils sont actifs mais non supportés.
+
+**Vérification des trunks :**
+
+```cisco
+S1#show interfaces trunk
+```
+
+**Résultat attendu :**
+
+```
+Port        Mode         Encapsulation  Status        Native vlan
+Et0/0       on           802.1q         trunking      10
+Et0/2       on           802.1q         trunking      10
+
+Port        Vlans allowed on trunk
+Et0/0       10,20,30,40,50
+Et0/2       10,20,30
+```
+
+**Commentaire du résultat :**
+
+Le **port Et0/0** est configuré en mode trunk avec une encapsulation 802.1Q. Son statut est **`trunking`**, ce qui signifie qu'il est opérationnel et qu'il transporte effectivement le trafic de plusieurs VLANs. Le VLAN natif est défini sur **10 (Management)**. La liste des VLANs autorisés sur ce trunk est **10, 20, 30, 40 et 50**.
+
+Le **port Et0/2** est également configuré en mode trunk avec une encapsulation 802.1Q. Son statut est **`trunking`**. Le VLAN natif est **10 (Management)**. La liste des VLANs
