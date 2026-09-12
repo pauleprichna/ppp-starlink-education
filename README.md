@@ -678,7 +678,7 @@ La commande `switchport nonegotiate` désactive la négociation automatique du m
 
 La capture ci-dessous présente la configuration des ports d'accès du switch S1 pour les VLANs 10 (Management), 20 (Éducation) et 30 (Administration).
 
-![Configuration des ports d'accès VLANs 10, 20 et 30](Images/ports_acces_vlan.png)
+![Configuration des ports d'accès VLANs 10, 20 et 30](Images/verification_acces_mode.png)
 
 **Commandes exécutées :**
 
@@ -726,3 +726,14 @@ La commande `interface ethernet 1/0` sélectionne le port physique Ethernet 1/0 
 La commande `switchport mode access` configure le port en mode accès.
 
 La commande `switchport access vlan 30` assigne le port au VLAN 30 (Administration). Tout le trafic transitant par ce port sera associé à ce VLAN.
+
+#### Vérification finale des VLANs et des ports
+
+Après la configuration des VLANs et des ports d'accès, la commande `show vlan brief` permet de vérifier que l'ensemble de la configuration est correctement appliquée sur le switch S1.
+
+![Vérification finale des VLANs](Images/verification_trunk.png)
+
+**Commande exécutée :**
+
+```cisco
+S1(config)#do show vlan brief
