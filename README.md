@@ -657,7 +657,7 @@ S1(config-if)#exit
 
 La dernière étape consiste à vérifier que les VLANs et les trunks sont correctement configurés et opérationnels.
 
-![Vérification des VLANs](Images/verification_vlan.png)
+![Vérification des VLANs](Images/verificationvlan.png)
 
 **Vérification des VLANs :**
 
