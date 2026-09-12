@@ -657,3 +657,19 @@ S1(config-if)#switchport trunk native vlan 10
 S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
 S1(config-if)#switchport nonegotiate
 S1(config-if)#exit
+
+**Analyse détaillée des commandes :**
+
+La commande `interface e0/2` sélectionne le port physique Ethernet 0/2 du switch S1. Ce port est dédié à la connexion avec le contrôleur WiFi vWLC.
+
+La commande `switchport trunk encapsulation dot1q` spécifie le protocole d'encapsulation à utiliser pour le trunk. Dot1q (802.1Q) est le standard IEEE pour le tagging VLAN, utilisé par la quasi-totalité des équipements réseau modernes.
+
+La commande `switchport mode trunk` configure le port en mode trunk. Un port en mode trunk transporte le trafic de multiples VLANs en ajoutant un tag VLAN à chaque trame. Cette configuration est indispensable pour un port connecté à un équipement qui doit communiquer avec plusieurs VLANs.
+
+La commande `desc Lien vers le vWLC` ajoute une description au port. Cette description est utile pour identifier le rôle du port lors des opérations de maintenance, sans avoir à consulter une documentation externe.
+
+La commande `switchport trunk native vlan 10` définit le VLAN 10 (Management) comme VLAN natif. Le VLAN natif est le VLAN pour lequel le trafic n'est pas tagué sur le trunk. Cette configuration est importante car elle permet de transporter le trafic de gestion sans tag, simplifiant la configuration du vWLC pour ce VLAN.
+
+La commande `switchport trunk allowed vlan 10,20,30,40,50` spécifie la liste des VLANs autorisés à circuler sur le trunk. Cette liste est exhaustive et correspond à l'ensemble des VLANs configurés sur le switch. Seuls ces VLANs pourront transiter sur le trunk.
+
+La commande `switchport nonegotiate` désactive la négociation automatique du mode trunk. Sans cette commande, le switch essaierait de négocier le mode trunk via le protocole DTP (Dynamic Trunking Protocol), ce qui peut causer des problèmes de compatibilité ou de sécurité. La désactivation de DTP est une bonne pratique de sécurité.
