@@ -518,3 +518,21 @@ Les postes clients représentent les utilisateurs finaux : élèves, enseignants
 ```bash
 git clone https://github.com/paulepricna/ppp-starlink-education.git
 cd ppp-starlink-education/maquette
+
+### 2. Ouvrir le projet GNS3
+
+1. Lancez **GNS3**
+2. Cliquez sur **File > Open project**
+3. Sélectionnez le fichier `gns3_project/project.gns3`
+4. Le projet s'ouvre avec l'ensemble des équipements
+
+### 3. Démarrer les équipements
+
+1. Cliquez sur le bouton **Start all devices**
+2. Attendez que tous les équipements soient démarrés (voyants verts)
+3. Vérifiez que les liens sont actifs
+
+### 4. Charger les configurations
+
+Pour chaque équipement, chargez la configuration depuis le dossier `configs/` :
+
