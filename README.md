@@ -674,3 +674,55 @@ La commande `switchport trunk native vlan 10` définit le VLAN 10 (Management) c
 La commande `switchport trunk allowed vlan 10,20,30,40,50` spécifie la liste des VLANs autorisés à circuler sur le trunk. Cette liste est exhaustive et correspond à l'ensemble des VLANs configurés sur le switch. Seuls ces VLANs pourront transiter sur le trunk.
 
 La commande `switchport nonegotiate` désactive la négociation automatique du mode trunk. Sans cette commande, le switch essaierait de négocier le mode trunk via le protocole DTP (Dynamic Trunking Protocol), ce qui peut causer des problèmes de compatibilité ou de sécurité. La désactivation de DTP est une bonne pratique de sécurité.
+#### Configuration des ports d'accès pour les VLANs 10, 20 et 30
+
+La capture ci-dessous présente la configuration des ports d'accès du switch S1 pour les VLANs 10 (Management), 20 (Éducation) et 30 (Administration).
+
+![Configuration des ports d'accès VLANs 10, 20 et 30](Images/ports_acces_vlan.png)
+
+**Commandes exécutées :**
+
+```cisco
+S1(config)#interface ethernet 0/3
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 10
+S1(config-if)#exit
+
+S1(config)#interface ethernet 1/1
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 20
+S1(config-if)#exit
+
+S1(config)#interface ethernet 1/0
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 30
+S1(config-if)#exit
+
+
+
+```
+**Analyse détaillée des commandes :**
+
+**Configuration du port Ethernet 0/3 (VLAN 10 - Management)**
+
+La commande `interface ethernet 0/3` sélectionne le port physique Ethernet 0/3 du switch S1. Ce port est destiné à être connecté au poste d'administration réseau `pc-win-1`.
+
+La commande `switchport mode access` configure le port en mode accès. Un port en mode accès ne transporte le trafic que d'un seul VLAN.
+
+La commande `switchport access vlan 10` assigne le port au VLAN 10 (Management). Tout le trafic transitant par ce port sera associé à ce VLAN.
+
+**Configuration du port Ethernet 1/1 (VLAN 20 - Éducation)**
+
+La commande `interface ethernet 1/1` sélectionne le port physique Ethernet 1/1 du switch S1. Ce port est destiné à être connecté au poste élève `pc-win-2`.
+
+La commande `switchport mode access` configure le port en mode accès.
+
+La commande `switchport access vlan 20` assigne le port au VLAN 20 (Éducation). Tout le trafic transitant par ce port sera associé à ce VLAN.
+
+**Configuration du port Ethernet 1/0 (VLAN 30 - Administration)**
+
+La commande `interface ethernet 1/0` sélectionne le port physique Ethernet 1/0 du switch S1. Ce port est destiné à être connecté au poste enseignant `pc-win-3`.
+
+La commande `switchport mode access` configure le port en mode accès.
+
+La commande `switchport access vlan 30` assigne le port au VLAN 30 (Administration). Tout le trafic transitant par ce port sera associé à ce VLAN.
