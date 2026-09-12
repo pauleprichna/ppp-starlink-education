@@ -543,7 +543,7 @@ Pour chaque équipement, chargez la configuration depuis le dossier `configs/`.
 
 Avant de commencer la configuration, voici le schéma de la maquette réseau montrant les ports du switch S1 et leurs interconnexions.
 
-![Mise en œuvre des ports](Images/mise_enoeuvre.png)
+![Mise en œuvre des ports](Images/interface.png)
 
 **Sur ce schéma, on peut identifier les ports du switch S1 :**
 
@@ -568,6 +568,7 @@ Avant de commencer la configuration, voici le schéma de la maquette réseau mon
 #### Étape 1 : Création des VLANs
 
 La première étape consiste à créer les différents VLANs qui segmenteront le réseau de l'école.
+
 
 ![Création des VLANs](Images/creation_vlan.png)
 
