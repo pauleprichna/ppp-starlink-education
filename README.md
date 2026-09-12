@@ -535,4 +535,72 @@ cd ppp-starlink-education/maquette
 ### 4. Charger les configurations
 
 Pour chaque équipement, chargez la configuration depuis le dossier `configs/` :
+## 🚀 Mise en œuvre
 
+### Configuration des VLANs sur le Switch S1
+
+#### Étape 0 : Architecture et ports du switch S1
+
+Avant de commencer la configuration, voici le schéma de la maquette réseau montrant les ports du switch S1 et leurs interconnexions.
+
+![Mise en œuvre des ports](Images/mise_en_oeuvre.png)
+
+**Sur ce schéma, on peut identifier les ports du switch S1 :**
+
+| **Port** | **Mode** | **VLAN(s)** | **Destination** |
+|---|---|---|---|
+| e0/0 | Trunk | 10,20,30,40,50 | Routeur R1 |
+| e0/1 | Access | 50 | Serveur Zabbix (Ubuntu 24.04) |
+| e0/2 | Trunk | 10,20,30 | Contrôleur WiFi vWLC |
+| e0/3 | Access | 10 | pc-win-1 (Management) |
+| e1/0 | Access | 30 | pc-win-3 (Administration) |
+| e1/1 | Access | 20 | pc-win-2 (Éducation) |
+
+**Explication des connexions :**
+
+- **Trunk e0/0** : Liaison vers le routeur R1, transporte tous les VLANs (10, 20, 30, 40, 50)
+- **Trunk e0/2** : Liaison vers le contrôleur vWLC, transporte les VLANs 10, 20 et 30
+- **Ports d'accès** : Chaque port est assigné à un VLAN spécifique (un port = un VLAN)
+- **VLAN natif** : Le VLAN 10 (Management) est utilisé comme VLAN natif sur les trunks
+
+---
+
+#### Étape 1 : Création des VLANs
+
+La première étape consiste à créer les différents VLANs qui segmenteront le réseau de l'école.
+
+
+
+![Création des VLANs](Images/mise_enoeuvre.png)
+
+
+
+![Création des VLANs](Images/creation_vlan.png)
+
+
+
+**Commandes exécutées :**
+
+```cisco
+S1(config)#vlan 10
+S1(config-vlan)#name Management
+S1(config-vlan)#vlan 20
+S1(config-vlan)#name Education
+S1(config-vlan)#vlan 30
+S1(config-vlan)#name Administration
+S1(config-vlan)#vlan 40
+S1(config-vlan)#name Invites
+S1(config-vlan)#vlan 50
+S1(config-vlan)#name Serveurs
+S1(config-vlan)#exit
+
+#### Étape 3 : Vérification des VLANs et des trunks
+
+La dernière étape consiste à vérifier que les VLANs et les trunks sont correctement configurés et opérationnels.
+
+![Vérification des VLANs](Images/verification_vlan.png)
+
+**Vérification des VLANs :**
+
+```cisco
+S1(config)#do show vlan brief
