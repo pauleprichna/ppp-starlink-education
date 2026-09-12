@@ -545,7 +545,7 @@ Pour chaque équipement, chargez la configuration depuis le dossier `configs/` :
 
 Avant de commencer la configuration, voici le schéma de la maquette réseau montrant les ports du switch S1 et leurs interconnexions.
 
-![Mise en œuvre des ports](Images/mise_en_oeuvre.png)
+![Mise en œuvre des ports](Images/mise_enoeuvre.png)
 
 **Sur ce schéma, on peut identifier les ports du switch S1 :**
 
