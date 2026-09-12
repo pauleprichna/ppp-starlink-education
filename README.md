@@ -755,3 +755,14 @@ S1(config-if)#switchport trunk native vlan 10
 S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
 S1(config-if)#desc Lien vers R1
 S1(config-if)#do wr
+```
+#### Vérification des trunks sur le switch S1
+
+Après la configuration des ports trunk sur le switch S1, la commande `show interface trunk` permet de vérifier que les trunks sont correctement configurés et opérationnels.
+
+![Vérification des trunks](Images/verification_trunk_R1.png)
+
+**Commande exécutée :**
+
+```cisco
+S1(config)#do show interface trunk
