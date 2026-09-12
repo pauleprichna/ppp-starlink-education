@@ -518,6 +518,7 @@ Les postes clients représentent les utilisateurs finaux : élèves, enseignants
 ```bash
 git clone https://github.com/paulepricna/ppp-starlink-education.git
 cd ppp-starlink-education/maquette
+```
 
 ### 2. Ouvrir le projet GNS3
 
@@ -535,6 +536,7 @@ cd ppp-starlink-education/maquette
 ### 4. Charger les configurations
 
 Pour chaque équipement, chargez la configuration depuis le dossier `configs/` :
+
 ## 🚀 Mise en œuvre
 
 ### Configuration des VLANs sur le Switch S1
