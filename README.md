@@ -598,123 +598,37 @@ S1(config-vlan)#exit
 
 ---
 
-#### Étape 2 : Configuration des ports d'accès et des trunks
+#### Étape 3 : Vérification des VLANs créés
 
-Une fois les VLANs créés, il faut assigner les ports d'accès aux différents VLANs et configurer les trunks pour les liaisons vers le routeur R1 et le contrôleur vWLC.
+Après la création des VLANs sur le switch S1, il est essentiel de vérifier que ces derniers sont correctement configurés et opérationnels. Cette vérification permet de s'assurer que la segmentation réseau est fonctionnelle avant de passer à la configuration des ports d'accès et des trunks.
 
-**Configuration des ports d'accès :**
-
-```cisco
-S1(config)#interface Ethernet0/3
-S1(config-if)#switchport mode access
-S1(config-if)#switchport access vlan 10
-S1(config-if)#exit
-
-S1(config)#interface Ethernet1/1
-S1(config-if)#switchport mode access
-S1(config-if)#switchport access vlan 20
-S1(config-if)#exit
-
-S1(config)#interface Ethernet1/0
-S1(config-if)#switchport mode access
-S1(config-if)#switchport access vlan 30
-S1(config-if)#exit
-
-S1(config)#interface Ethernet0/1
-S1(config-if)#switchport mode access
-S1(config-if)#switchport access vlan 50
-S1(config-if)#exit
-```
-
-**Configuration des trunks :**
-
-```cisco
-S1(config)#interface Ethernet0/0
-S1(config-if)#switchport trunk encapsulation dot1q
-S1(config-if)#switchport mode trunk
-S1(config-if)#switchport trunk native vlan 10
-S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
-S1(config-if)#exit
-
-S1(config)#interface Ethernet0/2
-S1(config-if)#switchport trunk encapsulation dot1q
-S1(config-if)#switchport mode trunk
-S1(config-if)#switchport trunk native vlan 10
-S1(config-if)#switchport trunk allowed vlan 10,20,30
-S1(config-if)#exit
-```
-
-**Explication :**
-
-- **Ports d'accès** : Chaque port est assigné à un VLAN spécifique (un port = un VLAN)
-- **Trunk e0/0** : Liaison vers le routeur R1, transporte tous les VLANs (10, 20, 30, 40, 50)
-- **Trunk e0/2** : Liaison vers le contrôleur vWLC, transporte les VLANs 10, 20 et 30
-- **VLAN natif** : Le VLAN 10 (Management) est utilisé comme VLAN natif
+![Vérification des VLANs](Images/verification_vlan.png)
 
 ---
 
-#### Étape 3 : Vérification des VLANs et des trunks
+##### Vérification avec la commande `show vlan brief`
 
-La dernière étape consiste à vérifier que les VLANs et les trunks sont correctement configurés et opérationnels.
-
-![Vérification des VLANs](Images/verificationvlan.png)
-
-**Vérification des VLANs :**
+**Commande exécutée :**
 
 ```cisco
 S1(config)#do show vlan brief
+
+#### Étape 2 : Configuration des ports d'accès
+
+Une fois les VLANs créés, il est nécessaire de configurer les ports d'accès du switch S1. Un port d'accès est un port qui ne transporte le trafic que d'un seul VLAN. Chaque port est assigné à un VLAN spécifique en fonction du type d'utilisateur ou d'équipement qui y est connecté.
+
+---
 ```
+##### Configuration du port d'accès pour le VLAN 50 (Serveurs)
 
-**Résultat obtenu :**
+La capture ci-dessous présente la configuration du port Ethernet 0/1 du switch S1 en mode accès pour le VLAN 50 (Serveurs).
 
-```
-VLAN Name                             Status    Ports
----- -------------------------------- --------- -------------------------------
-1    default                          active    Et0/0, Et0/1, Et0/2, Et0/3
-                                                Et1/0, Et1/1, Et1/2, Et1/3
-                                                Et2/0, Et2/1, Et2/2, Et2/3
-                                                Et3/0, Et3/1, Et3/2, Et3/3
-10   Management                       active
-20   Education                        active
-30   Administration                   active
-40   Invites                          active
-50   Serveurs                         active
-1002 fddi-default                     act/unsup
-1003 token-ring-default               act/unsup
-1004 fddinet-default                  act/unsup
-1005 trnet-default                    act/unsup
-```
+![Configuration du mode accès VLAN 50](Images/mode_acces_vlan50.png)
 
-**Commentaire du résultat :**
-
-La commande `show vlan brief` affiche la liste complète des VLANs configurés sur le switch S1, avec leur identifiant, leur nom, leur statut et les ports qui leur sont assignés.
-
-La première ligne concerne le **VLAN 1 (default)**. Ce VLAN est présent par défaut sur tous les switches Cisco et ne peut pas être supprimé. Tous les ports qui n'ont pas encore été assignés à un VLAN spécifique restent dans ce VLAN.
-
-Les **VLANs 10, 20, 30, 40 et 50** apparaissent avec leurs noms respectifs : Management, Education, Administration, Invites et Serveurs. Tous ont le statut **`active`**, ce qui confirme qu'ils ont été correctement créés et qu'ils sont opérationnels.
-
-Les **VLANs 1002 à 1005** sont des VLANs par défaut spécifiques aux environnements Cisco. Ils sont associés à des technologies réseau historiques (FDDI, Token Ring) qui ne sont plus utilisées. Leur statut **`act/unsup`** (active/unsupported) indique qu'ils sont actifs mais non supportés.
-
-**Vérification des trunks :**
+**Commandes exécutées :**
 
 ```cisco
-S1#show interfaces trunk
-```
-
-**Résultat attendu :**
-
-```
-Port        Mode         Encapsulation  Status        Native vlan
-Et0/0       on           802.1q         trunking      10
-Et0/2       on           802.1q         trunking      10
-
-Port        Vlans allowed on trunk
-Et0/0       10,20,30,40,50
-Et0/2       10,20,30
-```
-
-**Commentaire du résultat :**
-
-Le **port Et0/0** est configuré en mode trunk avec une encapsulation 802.1Q. Son statut est **`trunking`**, ce qui signifie qu'il est opérationnel et qu'il transporte effectivement le trafic de plusieurs VLANs. Le VLAN natif est défini sur **10 (Management)**. La liste des VLANs autorisés sur ce trunk est **10, 20, 30, 40 et 50**.
-
-Le **port Et0/2** est également configuré en mode trunk avec une encapsulation 802.1Q. Son statut est **`trunking`**. Le VLAN natif est **10 (Management)**. La liste des VLANs
+S1(config)#interface ethernet 0/1
+S1(config-if)#switchport mode access
+S1(config-if)#switchport access vlan 50
+S1(config-if)#
