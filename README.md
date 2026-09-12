@@ -573,7 +573,7 @@ La première étape consiste à créer les différents VLANs qui segmenteront le
 
 
 
-![Création des VLANs](Images/mise_enoeuvre.png)
+![Mise en œuvre des ports](Images/mise_enoeuvre.png)
 
 
 
