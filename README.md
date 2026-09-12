@@ -640,3 +640,20 @@ La commande `switchport mode access` configure le port en mode accès. Un port e
 
 La commande `switchport access vlan 50` assigne le port au VLAN 50 (Serveurs). Tout le trafic entrant et sortant sur ce port sera associé à ce VLAN. Le switch ajoutera automatiquement le tag VLAN 50 aux trames sortant de ce port et enlèvera le tag pour les trames entrantes, simplifiant ainsi la configuration du serveur connecté.
 ```
+#### Configuration du port Trunk vers le contrôleur WiFi (vWLC)
+
+La capture ci-dessous présente la configuration du port Ethernet 0/2 du switch S1 en mode trunk vers le contrôleur WiFi vWLC.
+
+![Configuration du trunk vers le vWLC](Images/trunk_vwlc.png)
+
+**Commandes exécutées :**
+
+```cisco
+S1(config)#interface e0/2
+S1(config-if)#switchport trunk encapsulation dot1q
+S1(config-if)#switchport mode trunk
+S1(config-if)#desc Lien vers le vWLC
+S1(config-if)#switchport trunk native vlan 10
+S1(config-if)#switchport trunk allowed vlan 10,20,30,40,50
+S1(config-if)#switchport nonegotiate
+S1(config-if)#exit
